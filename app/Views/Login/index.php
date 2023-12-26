@@ -24,9 +24,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Ingresa tus credenciales</p>
 
-      <form action="#" method="post">
+      <form action="<?php echo base_url(); ?>login/validar" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input id="emailUsuario" name="emailUsuario" type="text" class="form-control" placeholder="Email o Usuario" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input id="clave" name="clave" type="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
