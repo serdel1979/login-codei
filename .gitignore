@@ -1,0 +1,34 @@
+# CodeIgniter 4
+.env
+composer.lock
+vendor/
+writable/
+tests/_support/Codeception/Log/
+.env.local.php
+
+# IDE
+.idea/
+.vscode/
+
+# User-specific files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.komodotools/
+
+# Environment
+.env.local
+.env.development
+.env.testing
+.env.staging
+.env.production
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
