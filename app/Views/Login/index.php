@@ -22,7 +22,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Ingresa tus datos de inicio</p>
+      <p class="login-box-msg">Ingresa tus credenciales</p>
 
       <form action="#" method="post">
         <div class="input-group mb-3">
