@@ -14,6 +14,10 @@ class Login extends BaseController{
         // $clave = bin2hex($encrypter->encrypt(123));
 
         // echo $clave;
+        if (session()->get('usuario')) {
+            // Si ya está autenticado, redirige al dashboard
+            return redirect()->to(base_url('dashboard'));
+        }
         return view("Login/index");
     }
 
