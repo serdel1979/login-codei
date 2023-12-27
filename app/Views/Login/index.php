@@ -42,22 +42,24 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div>
+          
           <!-- /.col -->
-          <div class="col-4">
+          <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
+      <br>
+      <div class="row">
+        <div class="col-12" style="text: align;">
+          <?php if(isset($mensaje)){?>
+            <div class="alert alert-<?php echo $tipo; ?>">
+                <?= $mensaje; ?>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
     
     </div>
     <!-- /.login-card-body -->

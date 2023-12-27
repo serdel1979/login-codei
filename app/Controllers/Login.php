@@ -19,6 +19,8 @@ class Login extends BaseController{
 
     public function validar(){
         $emailUsuario = $this->request->getPost("emailUsuario");
+
+
         if(filter_var($emailUsuario, FILTER_VALIDATE_EMAIL)){
             $email = filter_var($emailUsuario, FILTER_SANITIZE_EMAIL);
         
@@ -32,8 +34,37 @@ class Login extends BaseController{
 
         }
 
-        print_r($resultUser);
+        if($resultUser){
+                $encrypter = \Config\Services::encrypter();
+                $clavedB = $encrypter->decrypt(hex2bin($resultUser->clave));
+
+                $clave = $this->request->getPost("clave");
+                if($clave == $clavedB){
+
+                    $data = [
+                        "usuario"=> $resultUser->nombre.' '.$resultUser->apellido,
+                        "email"=> $resultUser->email,
+                        "activo"=> $resultUser->estado,
+                        "foto"=> $resultUser->foto,
+                    ];
+                    session()->set($data);
+
+                    return redirect()->to(base_url().'dashboard');
+                }else{
+                    $data = ['tipo'=>'danger','mensaje'=>'Usuario o clave incorrecto'];
+                    return view('login/index',$data);
+                }
+        }else{
+            $data = ['tipo'=>'danger','mensaje'=>'Usuario o clave incorrecto'];
+            return view('login/index',$data);
+        }
+
     }
 
+
+    public function cerrar(){
+        session()->destroy();
+        return redirect()->to(base_url());
+    }
 
 }

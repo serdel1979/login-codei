@@ -23,13 +23,31 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" onclick="logout();" class="nav-link">
               <i class="fas fa-sign-out-alt text-danger"></i>
               <p>Salir</p>
             </a>
           </li>
         </ul>
 </nav>
+
+<script type="text/javascript">
+  function logout(){
+    Swal.fire({
+      title:"Salir",
+      text:"¿Seguro que quiere cerrar la sesión?",
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonColor:'#d33',
+      confirmButton: 'Si, salir'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        window.location.href = "<?php echo base_url('login/cerrar'); ?>"
+      }
+    })
+  }
+</script>
+
 
 <?= $this->endSection(); ?>
 
